@@ -16,14 +16,44 @@ module.exports = () => {
     output: {
       filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
+      clean: true
     },
+
     plugins: [
-      
+      new HtmlWebpackPlugin({
+        title: 'JATE',
+        template: './src/index.html'
+      }),
+      new WebpackPwaManifest({
+        swSrc: './src-sw.js',
+        swDest: 'src-sw.js'
+      }),
+      new InjectManifest({
+        name: 'Just Another Text Editor',
+        short_name: 'J.A.T.E.',
+        description: 'PWA text editor',
+      }),
     ],
 
     module: {
       rules: [
-        
+        {
+          test: /\.css$/i,
+          use: ["style-loader", "css-loader"],
+        },
+        {
+          test: /\.(?:js|mjs|cjs)$/,
+          exclude: /node_modules/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: [
+                ['@babel/preset-env', { targets: "defaults" }]
+              ],
+              plugins: ['@babel/plugin-proposal-class-properties']
+            }
+          }
+        }
       ],
     },
   };
