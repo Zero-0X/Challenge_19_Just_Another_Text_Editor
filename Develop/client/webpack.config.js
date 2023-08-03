@@ -32,6 +32,20 @@ module.exports = () => {
         name: 'Just Another Text Editor',
         short_name: 'J.A.T.E.',
         description: 'PWA text editor',
+        fingerprints: false,
+        inject: true,
+        ios: true,
+        orientation: 'portrait',
+        display: 'standalone',
+        start_url: '.',
+        publicPath: './',
+        icons: [
+          {
+            src: path.resolve('src/images/logo.png'),
+            sizes: [96, 128, 192, 256, 384, 512],
+            destination: path.join('assets', 'icons'),
+          },
+        ],
       }),
     ],
 
