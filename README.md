@@ -2,6 +2,12 @@
 
 ## Description
   Full-stack text editor
+
+  Deployed Link: https://ch19-just-another-text-editor-d4f296cdd906.herokuapp.com/
+
+  Screenshots:
+  ![Alt text](<Screenshot (506)-1.png>)
+  ![Alt text](<Screenshot (507).png>)
   
 ## Table of Contents
 - [Installation](#installation)
